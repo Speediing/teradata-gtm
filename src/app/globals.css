@@ -234,7 +234,12 @@ button:active:not(:focus-visible),
 
 @media (prefers-reduced-motion: reduce) {
   .metric-card,
-  .job-more-body {
+  .job-more-body,
+  .hero-bot-demo,
+  .hero-phone-header small span,
+  .hero-phone-message,
+  .hero-phone-work,
+  .hero-phone-work-label span {
     animation: none;
   }
 
@@ -469,7 +474,9 @@ button:active:not(:focus-visible),
   position: relative;
   z-index: 1;
   display: grid;
-  grid-template-columns: minmax(0, 1fr);
+  grid-template-columns: minmax(0, 1fr) minmax(17rem, 22rem);
+  align-items: center;
+  gap: clamp(2rem, 4vw, 5rem);
   min-height: 450px;
   padding: 96px 0 64px;
   overflow: visible;
@@ -513,6 +520,452 @@ button:active:not(:focus-visible),
   line-height: 1.5;
 }
 
+.hero-phone-jobs {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  gap: 0.38rem;
+  max-width: 40rem;
+  margin-top: 1.5rem;
+}
+
+.hero-phone-jobs button {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+  min-height: 1.8rem;
+  padding: 0.34rem 0.62rem;
+  border: 1px solid #d6d7df;
+  border-radius: 999px;
+  color: #5f6064;
+  background: rgba(255, 255, 255, 0.52);
+  font-size: 0.59rem;
+  line-height: 1;
+  cursor: pointer;
+  transition:
+    color 180ms,
+    border-color 180ms,
+    background 180ms,
+    transform 180ms;
+}
+
+.hero-phone-jobs button:hover {
+  color: var(--ink);
+  border-color: #b9bac3;
+  transform: translateY(-1px);
+}
+
+.hero-phone-jobs button.is-active {
+  color: var(--accent-dark);
+  border-color: color-mix(in srgb, var(--accent) 28%, transparent);
+  background: color-mix(in srgb, var(--accent) 9%, transparent);
+}
+
+.hero-phone-jobs button span {
+  display: grid;
+  width: 1.2rem;
+  height: 1.2rem;
+  place-items: center;
+  margin: -0.18rem 0 -0.18rem -0.35rem;
+  border-radius: 50%;
+  color: #fff;
+  background: var(--accent);
+}
+
+.hero-phone-jobs button span svg {
+  width: 0.72rem;
+  height: 0.72rem;
+}
+
+.hero-bot-demo {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-self: end;
+  width: 100%;
+  max-width: 17rem;
+  animation: hero-demo-enter 900ms var(--ease-out) 180ms both;
+}
+
+.hero-bot-demo::before,
+.hero-bot-demo::after {
+  position: absolute;
+  z-index: -1;
+  width: 0.28rem;
+  border-radius: 0.2rem;
+  background: #303035;
+  content: "";
+}
+
+.hero-bot-demo::before {
+  top: 5.7rem;
+  left: -0.2rem;
+  height: 1.7rem;
+  box-shadow:
+    0 2.2rem #303035,
+    0 4.35rem #303035;
+}
+
+.hero-bot-demo::after {
+  top: 8.4rem;
+  right: -0.2rem;
+  height: 3.2rem;
+}
+
+.hero-phone {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-self: flex-end;
+  width: 17rem;
+  max-width: 100%;
+  height: 34rem;
+  overflow: hidden;
+  border: 4px solid #111113;
+  border-radius: 3.2rem;
+  color: #171719;
+  background: #fbfbfb;
+  box-shadow:
+    0 2.5rem 5rem rgba(32, 35, 31, 0.2),
+    inset 0 0 0 1px rgba(17, 17, 17, 0.1);
+}
+
+.hero-phone::after {
+  position: absolute;
+  z-index: 4;
+  bottom: 0.26rem;
+  left: 50%;
+  width: 4.5rem;
+  height: 0.18rem;
+  border-radius: 999px;
+  background: rgba(15, 15, 16, 0.78);
+  content: "";
+  transform: translateX(-50%);
+}
+
+.hero-phone-notch {
+  position: absolute;
+  z-index: 4;
+  top: 0.65rem;
+  left: 50%;
+  width: 5.8rem;
+  height: 1.7rem;
+  border-radius: 999px;
+  background: #050505;
+  transform: translateX(-50%);
+}
+
+.hero-phone-header {
+  display: grid;
+  grid-template-columns: 1.85rem 1.95rem minmax(0, 1fr) 1.85rem;
+  align-items: center;
+  gap: 0.28rem;
+  min-height: 5.3rem;
+  padding: 2.3rem 0.62rem 0.58rem;
+  border-bottom: 1px solid #e6e6e8;
+  background: rgba(250, 250, 250, 0.94);
+}
+
+.hero-phone-header > span {
+  display: flex;
+  width: 1.85rem;
+  height: 1.85rem;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid #ededf0;
+  border-radius: 50%;
+  background: #fff;
+  box-shadow: 0 0.2rem 0.7rem rgba(0, 0, 0, 0.06);
+}
+
+.hero-phone-header svg {
+  display: block;
+  width: 0.9rem;
+  height: 0.9rem;
+}
+
+.hero-phone-header .hero-phone-back {
+  color: #77777d;
+}
+
+.hero-phone-header .hero-phone-agent {
+  width: 1.95rem;
+  height: 1.95rem;
+  color: #fff;
+  border-color: var(--accent);
+  background: var(--accent);
+}
+
+.hero-phone-header .hero-phone-agent svg {
+  width: 1rem;
+  height: 1rem;
+}
+
+.hero-phone-header .hero-phone-desktop {
+  color: #77777d;
+}
+
+.hero-phone-header p {
+  display: grid;
+  align-self: center;
+  gap: 0.1rem;
+  min-width: 0;
+  margin: 0;
+}
+
+.hero-phone-header strong,
+.hero-phone-header small {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  line-height: 1.15;
+}
+
+.hero-phone-header strong {
+  font-size: 0.72rem;
+  font-weight: 620;
+}
+
+.hero-phone-header small {
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+  color: #8c8c92;
+  font-size: 0.53rem;
+  font-weight: 500;
+}
+
+.hero-phone-header small span,
+.hero-phone-work-label span {
+  display: block;
+  flex: 0 0 auto;
+  width: 0.36rem;
+  height: 0.36rem;
+  border-radius: 50%;
+  background: var(--accent);
+  animation: hero-agent-pulse 2400ms ease-out infinite;
+  box-shadow: 0 0 0 0.2rem rgba(255, 95, 2, 0.12);
+}
+
+.hero-phone-thread {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  gap: 0.75rem;
+  min-height: 0;
+  overflow: hidden;
+  padding: 0.8rem 0.72rem;
+  background: #fff;
+}
+
+.hero-phone-work {
+  padding: 0.8rem;
+  border: 1px solid #e5e5e7;
+  border-radius: 0.85rem;
+  background: #f5f5f3;
+  box-shadow: 0 0.7rem 1.5rem rgba(0, 0, 0, 0.05);
+  animation: hero-phone-work 7s var(--ease-out) infinite;
+}
+
+.hero-phone-work p {
+  margin: 0;
+}
+
+.hero-phone-work-label {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding-bottom: 0.55rem;
+  color: #5f5f65;
+  font-size: 0.54rem;
+  font-weight: 700;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+}
+
+.hero-phone-work-meta {
+  display: grid;
+  grid-template-columns: 2.8rem minmax(0, 1fr);
+  gap: 0.35rem;
+  padding: 0.35rem 0;
+  border-top: 1px solid #e1e1e2;
+  color: #29292c;
+  font-size: 0.57rem;
+  line-height: 1.25;
+}
+
+.hero-phone-work-meta span {
+  color: #9a9a9f;
+}
+
+.hero-phone-work .hero-phone-work-copy {
+  margin: 0.55rem 0 0.6rem;
+  color: #28282b;
+  font-size: 0.63rem;
+  line-height: 1.42;
+}
+
+.hero-phone-work > strong {
+  display: block;
+  padding: 0.45rem 0.55rem;
+  border-radius: 0.45rem;
+  color: var(--accent-dark);
+  background: color-mix(in srgb, var(--accent) 9%, transparent);
+  font-size: 0.59rem;
+  font-weight: 650;
+}
+
+.hero-phone-message {
+  max-width: 80%;
+  margin: 0;
+  padding: 0.58rem 0.68rem;
+  border-radius: 0.9rem;
+  font-size: 0.63rem;
+  line-height: 1.35;
+}
+
+.hero-phone-message.is-user {
+  align-self: flex-end;
+  color: #fff;
+  border-bottom-right-radius: 0.25rem;
+  background: #151513;
+  animation: hero-phone-message 7s var(--ease-out) infinite;
+}
+
+.hero-phone-message.is-bot {
+  align-self: flex-start;
+  color: #222224;
+  border-bottom-left-radius: 0.25rem;
+  background: #f2f2f1;
+  animation: hero-phone-reply 7s var(--ease-out) infinite;
+}
+
+.hero-phone-composer {
+  display: grid;
+  grid-template-columns: 1.75rem minmax(0, 1fr) 1.45rem;
+  align-items: center;
+  gap: 0.3rem;
+  padding: 0.55rem 0.62rem 0.7rem;
+  background: rgba(250, 250, 250, 0.96);
+}
+
+.hero-phone-composer > span {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  line-height: 0;
+}
+
+.hero-phone-composer > span:first-child {
+  width: 1.75rem;
+  height: 1.75rem;
+  border: 1px solid #e5e5e7;
+  color: #89898f;
+  background: #fff;
+}
+
+.hero-phone-composer > span:last-child {
+  width: 1.45rem;
+  height: 1.45rem;
+  color: #98989e;
+  background: #f0f0f1;
+}
+
+.hero-phone-composer p {
+  overflow: hidden;
+  margin: 0;
+  padding: 0.48rem 0.58rem;
+  border: 1px solid #dedee1;
+  border-radius: 999px;
+  color: #aaaab0;
+  background: #fff;
+  font-size: 0.52rem;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.hero-phone-composer svg {
+  display: block;
+  width: 0.85rem;
+  height: 0.85rem;
+}
+
+.hero-phone-composer > span:last-child svg {
+  width: 0.72rem;
+  height: 0.72rem;
+}
+
+@keyframes hero-demo-enter {
+  from {
+    opacity: 0;
+    transform: translateY(1.4rem) rotate(2deg);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) rotate(0);
+  }
+}
+
+@keyframes hero-phone-work {
+  0%,
+  8% {
+    opacity: 0;
+    transform: translateY(0.7rem);
+  }
+  18%,
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes hero-phone-message {
+  0%,
+  36% {
+    opacity: 0;
+    transform: translateY(0.5rem);
+  }
+  47%,
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes hero-phone-reply {
+  0%,
+  57% {
+    opacity: 0;
+    transform: translateY(0.5rem);
+  }
+  68%,
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes hero-agent-pulse {
+  from {
+    box-shadow: 0 0 0 rgba(255, 95, 2, 0.42);
+  }
+  70%,
+  100% {
+    box-shadow: 0 0 0 0.42rem rgba(255, 95, 2, 0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-bot-demo,
+  .hero-phone-header small span,
+  .hero-phone-message,
+  .hero-phone-work,
+  .hero-phone-work-label span {
+    animation: none;
+  }
+}
+
 .usecase-framing {
   padding: 4.5rem 0 2.5rem;
   border-top: 1px solid var(--line);
@@ -540,14 +993,14 @@ button:active:not(:focus-visible),
   width: 0.65rem;
   height: 0.65rem;
   border-radius: 50%;
-  background: #5bc98b;
-  box-shadow: 0 0 0 0.3rem rgba(91, 201, 139, 0.13);
+  background: var(--accent);
+  box-shadow: 0 0 0 0.3rem rgba(255, 95, 2, 0.13);
 }
 
 .background-agent-pulse::after {
   position: absolute;
   inset: -0.32rem;
-  border: 1px solid rgba(91, 201, 139, 0.48);
+  border: 1px solid rgba(255, 95, 2, 0.48);
   border-radius: 50%;
   content: "";
 }
@@ -732,9 +1185,9 @@ button:active:not(:focus-visible),
   gap: 0.65rem;
   margin: 0 0 1.2rem;
   padding: 0.58rem 0.76rem;
-  border: 1px solid color-mix(in srgb, #2b7a4b 22%, var(--line));
+  border: 1px solid color-mix(in srgb, var(--accent) 22%, var(--line));
   border-radius: 999px;
-  background: color-mix(in srgb, #5bc98b 7%, var(--surface));
+  background: color-mix(in srgb, var(--accent) 7%, var(--surface));
 }
 
 .background-agent p {
@@ -747,7 +1200,7 @@ button:active:not(:focus-visible),
 }
 
 .background-agent strong {
-  color: #236a42;
+  color: var(--accent-dark);
   font-family: var(--mono);
   font-size: 0.58rem;
   font-weight: 750;
@@ -976,7 +1429,7 @@ button:active:not(:focus-visible),
 }
 
 .story-deck-ui .story-ui-bar span {
-  color: #c7f0d8;
+  color: #f4c6aa;
 }
 
 .story-mini-slide {
@@ -1015,13 +1468,13 @@ button:active:not(:focus-visible),
   padding: 0.19rem 0.34rem;
   border-radius: 0.2rem;
   color: #1b1820;
-  background: #d9b8ff;
+  background: #ffd2b6;
   font-size: 0.48rem;
   font-weight: 700;
 }
 
 .story-deck-ui footer {
-  color: #a8e6c1;
+  color: #f4c6aa;
 }
 
 .story-email-ui {
@@ -1325,7 +1778,7 @@ button:active:not(:focus-visible),
   place-items: center;
   border-radius: 50%;
   color: #1b1820;
-  background: #d9b8ff;
+  background: #ffd2b6;
   font-size: 0.5rem;
   font-weight: 800;
 }
@@ -1342,7 +1795,7 @@ button:active:not(:focus-visible),
 
 .story-outreach-ui footer {
   padding: 0.43rem 0.62rem;
-  color: #c7f0d8;
+  color: #f4c6aa;
   font-size: 0.56rem;
   font-weight: 650;
 }
@@ -2178,8 +2631,8 @@ button:active:not(:focus-visible),
 
 .out-phone-header .out-phone-agent {
   color: #fff;
-  border-color: #55baa8;
-  background: #55baa8;
+  border-color: var(--accent);
+  background: var(--accent);
   font-size: 0.9rem;
 }
 
@@ -4719,7 +5172,7 @@ button:active:not(:focus-visible),
   width: 1.1rem;
   height: 1.1rem;
   border-radius: 0.25rem;
-  background: #a259ff;
+  background: var(--accent);
   font-size: 0.7rem;
   font-weight: 800;
 }
@@ -4768,7 +5221,7 @@ button:active:not(:focus-visible),
 }
 
 .figma-frames span {
-  color: #a259ff;
+  color: var(--accent);
   font-size: 0.68rem;
   font-weight: 800;
 }
@@ -5117,6 +5570,18 @@ button:active:not(:focus-visible),
   .hero-line {
     font-size: clamp(48px, 12vw, 78px);
     margin: 18px 0 18px;
+  }
+
+  .hero-bot-demo {
+    justify-self: center;
+  }
+
+  .hero-phone {
+    align-self: center;
+  }
+
+  .hero-phone-jobs {
+    justify-content: flex-start;
   }
 
   .metric-grid {

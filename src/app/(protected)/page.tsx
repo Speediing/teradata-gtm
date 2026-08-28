@@ -1,7 +1,9 @@
 import Image from "next/image";
 import { CompareTable } from "@/components/CompareTable";
+import { HeroDemo } from "@/components/HeroDemo";
 import { HeroTelemetry } from "@/components/HeroTelemetry";
 import { JobSection } from "@/components/JobSection";
+import { QuoteWall } from "@/components/QuoteWall";
 import { RosterChart } from "@/components/RosterChart";
 import { SiteNav } from "@/components/SiteNav";
 import { JOBS } from "@/data/jobs";
@@ -25,17 +27,7 @@ export default function HomePage() {
       <div className="report">
         <div className="report-hero">
           <HeroTelemetry />
-          <section className="hero">
-            <div>
-              <p className="eyebrow">An agent fleet for Teradata sellers</p>
-              <h1>The agents that work while your sellers sell.</h1>
-              <p className="hero-intro">
-                A call, question, or account update starts the work. Each agent
-                gets a computer to research, check, and draft. Your seller stays
-                with the customer.
-              </p>
-            </div>
-          </section>
+          <HeroDemo />
 
           <RosterChart />
 
@@ -87,6 +79,7 @@ export default function HomePage() {
 
       <div className="report">
         <CompareTable />
+        <QuoteWall />
       </div>
 
       <footer className="site-footer">
