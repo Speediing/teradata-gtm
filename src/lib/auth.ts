@@ -1,4 +1,4 @@
-export const AUTH_COOKIE = "datadog_cro_session";
+export const AUTH_COOKIE = "teradata_gtm_session";
 
 export function sitePassword(): string {
   return process.env.SITE_PASSWORD || "land2expand";
@@ -13,7 +13,7 @@ function toHex(buffer: ArrayBuffer): string {
 export async function sessionToken(
   password: string = sitePassword(),
 ): Promise<string> {
-  const data = new TextEncoder().encode(`datadog-cro:${password}`);
+  const data = new TextEncoder().encode(`teradata-gtm:${password}`);
   const digest = await crypto.subtle.digest("SHA-256", data);
   return toHex(digest);
 }

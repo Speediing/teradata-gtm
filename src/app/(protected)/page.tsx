@@ -1,7 +1,8 @@
+import Image from "next/image";
 import { CompareTable } from "@/components/CompareTable";
 import { HeroTelemetry } from "@/components/HeroTelemetry";
 import { JobSection } from "@/components/JobSection";
-import { QuoteWall } from "@/components/QuoteWall";
+import { RosterChart } from "@/components/RosterChart";
 import { SiteNav } from "@/components/SiteNav";
 import { JOBS } from "@/data/jobs";
 
@@ -9,11 +10,14 @@ export default function HomePage() {
   return (
     <main id="top">
       <div className="hero-watercolor">
-        {/* eslint-disable-next-line @next/next/no-img-element */}
-        <img
+        <Image
           className="hero-watercolor-image"
-          src="/brand/watercolor-pad.png"
+          src="/brand/teradata-watercolor-header.png"
           alt=""
+          width={1536}
+          height={864}
+          sizes="100vw"
+          priority
         />
         <SiteNav />
       </div>
@@ -23,24 +27,28 @@ export default function HomePage() {
           <HeroTelemetry />
           <section className="hero">
             <div>
-              <p className="eyebrow">A proactive agent for every Datadog rep</p>
-              <h1>The agents that work while your reps sell.</h1>
+              <p className="eyebrow">An agent fleet for Teradata sellers</p>
+              <h1>The agents that work while your sellers sell.</h1>
               <p className="hero-intro">
-                Grok Bot listens to calls, watches the inbox, and researches
-                accounts in the background. Work triggers it — not another
-                prompt.
+                A call, question, or account update starts the work. Each agent
+                gets a computer to research, check, and draft. Your seller stays
+                with the customer.
               </p>
             </div>
           </section>
 
+          <RosterChart />
+
           <section className="usecase-framing">
             <p className="eyebrow">Three sample use cases</p>
             <h2>
-              Grok Bot gives every seller their own fleet of always-available
-              agent teammates. Anything your sellers do today can be done
-              through Grok Bot.
+              Give every Teradata seller a fleet of agents for the work around
+              each account.
             </h2>
-            <p>These are three examples from millions — not the boundary.</p>
+            <p>
+              Start with call follow-up, checked answers, and account research.
+              The seller reviews every draft.
+            </p>
           </section>
 
           <div className="metric-grid">
@@ -68,25 +76,29 @@ export default function HomePage() {
       </div>
 
       <div className="orbit-break" aria-hidden>
-        {/* eslint-disable-next-line @next/next/no-img-element */}
-        <img src="/brand/watercolor-orbit.png" alt="" />
+        <Image
+          src="/brand/teradata-watercolor-header.png"
+          alt=""
+          width={1536}
+          height={864}
+          sizes="100vw"
+        />
       </div>
 
       <div className="report">
         <CompareTable />
-        <QuoteWall />
       </div>
 
       <footer className="site-footer">
         <div>
-          <p className="footer-title">Cursor for Datadog</p>
-          <p>Grok Bot for Datadog sales</p>
+          <p className="footer-title">Cursor for Teradata</p>
+          <p>Teradata x SpaceXAI</p>
         </div>
         <address className="footer-contact">
-          <p>Datadog&apos;s existing Cursor contact</p>
-          <strong>Madeline Ingleby</strong>
-          <a href="mailto:madeline.ingleby@cursor.com">
-            madeline.ingleby@cursor.com
+          <p>Teradata&apos;s Cursor contact</p>
+          <strong>Mike Kelly</strong>
+          <a href="mailto:michael.kelly@cursor.com">
+            michael.kelly@cursor.com
           </a>
         </address>
       </footer>

@@ -7,8 +7,8 @@ export default function LoginPage() {
     <main className="login-shell">
       <section className="login-card" aria-labelledby="login-title">
         <BrandLockup size="md" />
-        <p className="eyebrow">Grok Bot for Datadog sales</p>
-        <h1 id="login-title">Enter the site password</h1>
+        <p className="eyebrow">Private Teradata leave-behind</p>
+        <h1 id="login-title">Enter the shared password</h1>
         <Suspense fallback={null}>
           <LoginForm />
         </Suspense>

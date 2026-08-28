@@ -6,8 +6,8 @@
   --paper: #f5f1e8;
   --surface: #fbf9f4;
   --line: #d8d3c8;
-  --accent: #632ca6;
-  --accent-dark: #4c1d82;
+  --accent: #ff5f02;
+  --accent-dark: #b6410a;
   --sage: #788274;
   --blue: #5e7180;
   --bg: var(--paper);
@@ -315,16 +315,16 @@ button:active:not(:focus-visible),
 }
 
 .brand-lockup {
-  --dd-h: 36px;
+  --brand-h: 18px;
   display: inline-flex;
-  align-items: flex-start;
-  gap: 0.4rem;
+  align-items: center;
+  gap: 0.42rem;
   min-width: 0;
   color: var(--ink);
   text-decoration: none;
 }
 
-.brand-dd,
+.brand-customer,
 .brand-sxai {
   display: block;
   width: auto;
@@ -334,14 +334,14 @@ button:active:not(:focus-visible),
   object-fit: contain;
 }
 
-.brand-dd {
-  height: var(--dd-h);
+.brand-customer {
+  height: var(--brand-h);
 }
 
 .brand-sxai {
-  height: calc(var(--dd-h) * 0.58);
-  max-width: calc(var(--dd-h) * 4.8);
-  margin-top: calc(var(--dd-h) * 0.2);
+  height: calc(var(--brand-h) * 0.82);
+  max-width: calc(var(--brand-h) * 8.2);
+  margin-top: 0;
   filter: brightness(0);
 }
 
@@ -350,19 +350,22 @@ button:active:not(:focus-visible),
 }
 
 .brand-lockup-sm {
-  --dd-h: 24px;
+  --brand-h: 16px;
 }
 
-.brand-lockup-md,
+.brand-lockup-md {
+  --brand-h: 17px;
+}
+
 .brand-lockup-lg {
-  --dd-h: 32px;
+  --brand-h: 18px;
 }
 
 .brand-times {
   align-self: center;
   margin-top: 0;
   color: var(--muted);
-  font-size: calc(var(--dd-h) * 0.28);
+  font-size: calc(var(--brand-h) * 0.72);
   font-weight: 300;
   line-height: 1;
 }
@@ -405,6 +408,7 @@ button:active:not(:focus-visible),
 .hero-watercolor {
   position: relative;
   width: 100%;
+  height: clamp(460px, 60vw, 700px);
   overflow: hidden;
   background: #1a1b18;
 }
@@ -412,10 +416,10 @@ button:active:not(:focus-visible),
 .hero-watercolor-image {
   display: block;
   width: 100%;
-  height: auto;
-  max-height: min(72vh, 820px);
+  height: 100%;
+  max-height: none;
   object-fit: cover;
-  object-position: center 42%;
+  object-position: center 48%;
 }
 
 .hero-telemetry {
@@ -443,9 +447,18 @@ button:active:not(:focus-visible),
 
 .report-hero {
   position: relative;
+  margin-top: clamp(-310px, -24vw, -220px);
+  padding: clamp(36px, 5vw, 72px);
+  border: 1px solid rgba(93, 67, 42, 0.2);
+  background:
+    radial-gradient(circle at 12% 4%, rgba(255, 255, 255, 0.7), transparent 31%),
+    radial-gradient(circle at 86% 96%, rgba(197, 131, 76, 0.11), transparent 34%),
+    var(--paper);
+  box-shadow: 0 28px 75px rgba(42, 29, 17, 0.22);
 }
 
 .report-hero .hero,
+.report-hero .roster,
 .report-hero .usecase-framing,
 .report-hero .metric-grid {
   position: relative;
@@ -606,7 +619,7 @@ button:active:not(:focus-visible),
 
 .orbit-break {
   position: relative;
-  height: auto;
+  height: clamp(260px, 34vw, 440px);
   overflow: hidden;
   pointer-events: none;
   background: var(--paper);
@@ -615,10 +628,10 @@ button:active:not(:focus-visible),
 .orbit-break img {
   display: block;
   width: 100%;
-  height: auto;
-  max-height: min(42vh, 420px);
+  height: 100%;
+  max-height: none;
   object-fit: cover;
-  object-position: 48% 58%;
+  object-position: 50% 52%;
 }
 
 .orbit-break::after {
@@ -909,7 +922,7 @@ button:active:not(:focus-visible),
 
 .story-transcript-ui {
   background:
-    linear-gradient(155deg, rgba(99, 44, 166, 0.08), transparent 55%),
+    linear-gradient(155deg, rgba(255, 95, 2, 0.08), transparent 55%),
     var(--surface);
 }
 
@@ -975,7 +988,7 @@ button:active:not(:focus-visible),
   border-radius: 0.38rem;
   color: #fff;
   background:
-    radial-gradient(circle at 90% 12%, rgba(99, 44, 166, 0.8), transparent 34%),
+    radial-gradient(circle at 90% 12%, rgba(255, 95, 2, 0.8), transparent 34%),
     #29242f;
 }
 
@@ -1013,7 +1026,7 @@ button:active:not(:focus-visible),
 
 .story-email-ui {
   background:
-    linear-gradient(145deg, rgba(99, 44, 166, 0.06), transparent 58%),
+    linear-gradient(145deg, rgba(255, 95, 2, 0.06), transparent 58%),
     var(--surface);
 }
 
@@ -1191,7 +1204,7 @@ button:active:not(:focus-visible),
 
 .story-research-ui {
   background:
-    radial-gradient(circle at 50% 60%, rgba(99, 44, 166, 0.11), transparent 48%),
+    radial-gradient(circle at 50% 60%, rgba(255, 95, 2, 0.11), transparent 48%),
     var(--surface);
 }
 
@@ -1428,6 +1441,56 @@ button:active:not(:focus-visible),
   background: var(--surface);
   border: 1px solid var(--line);
   box-shadow: none;
+}
+
+.leave-artifact {
+  padding: clamp(22px, 4vw, 54px);
+  border-color: color-mix(in srgb, var(--accent) 35%, var(--line));
+  background:
+    linear-gradient(130deg, color-mix(in srgb, var(--accent) 6%, transparent), transparent 42%),
+    #e7dac5;
+  box-shadow: 0 18px 44px rgba(48, 32, 17, 0.13);
+}
+
+.leave-artifact > .art {
+  max-width: 900px;
+  min-height: 320px;
+  margin: 0 auto;
+  padding: clamp(24px, 4vw, 48px);
+  border: 1px solid rgba(32, 35, 31, 0.14);
+  border-radius: 2px;
+  background: #fffdf8;
+  box-shadow: 0 12px 30px rgba(47, 30, 14, 0.13);
+  transform: rotate(-0.2deg);
+}
+
+.leave-artifact .art-kicker {
+  color: var(--accent-dark);
+  font-family: var(--mono);
+  font-size: 0.7rem;
+}
+
+.leave-artifact .art-title {
+  max-width: 680px;
+  margin: 0.7rem 0 2rem;
+  font-size: clamp(2rem, 5vw, 4rem);
+  font-weight: 470;
+  letter-spacing: -0.055em;
+  line-height: 0.98;
+}
+
+.leave-artifact .art-block {
+  display: grid;
+  grid-template-columns: minmax(110px, 0.3fr) minmax(0, 1fr);
+  gap: 1rem;
+  margin: 0;
+  padding: 1rem 0;
+  border-top: 1px solid var(--line);
+}
+
+.leave-artifact .art-block p {
+  font-size: 0.95rem;
+  line-height: 1.5;
 }
 
 .leave h3 {
@@ -3892,16 +3955,21 @@ button:active:not(:focus-visible),
   display: grid;
   place-items: center;
   padding: 32px 20px 48px;
-  background: var(--paper);
+  background:
+    linear-gradient(90deg, rgba(26, 27, 24, 0.83), rgba(26, 27, 24, 0.36)),
+    linear-gradient(180deg, transparent 52%, rgba(26, 27, 24, 0.8)),
+    url("/brand/teradata-watercolor-header.png") center / cover no-repeat;
 }
 
 .login-card {
   width: min(480px, 100%);
   padding: clamp(32px, 6vw, 58px) clamp(28px, 5vw, 48px) 42px;
-  background: var(--surface);
-  border: 1px solid var(--line);
+  background:
+    radial-gradient(circle at 12% 3%, rgba(255, 255, 255, 0.72), transparent 34%),
+    var(--paper);
+  border: 1px solid rgba(93, 67, 42, 0.22);
   border-radius: 3px;
-  box-shadow: none;
+  box-shadow: 0 28px 80px rgba(0, 0, 0, 0.34);
 }
 
 .login-card .eyebrow {
@@ -5583,12 +5651,12 @@ button:active:not(:focus-visible),
 }
 
 @media (max-width: 640px) {
-  .nav-brand {
+  .header-actions {
     display: none;
   }
 
   .site-header {
-    justify-content: flex-end;
+    justify-content: flex-start;
   }
 
   .hero h1,

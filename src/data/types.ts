@@ -1,13 +1,3 @@
-export type ClipId =
-  | "01-morning-inbox"
-  | "02-prospecting-pg"
-  | "03-slides-granola"
-  | "04-engineer-bugbot"
-  | "05-forecast-sfdc"
-  | "06-customer-expert"
-  | "07-customer-exec-brief"
-  | "08-chief-groupchat";
-
 export type JobId =
   | "standardize-room"
   | "legal-redlines"
@@ -24,16 +14,6 @@ export type Participant = {
 };
 
 export type MessageKind = "text" | "draft" | "routine" | "handoff" | "system";
-
-export type SlideVoice = "them" | "us";
-
-export type SlideCard = {
-  n: number;
-  title: string;
-  body: string;
-  kicker?: string;
-  voice?: SlideVoice;
-};
 
 export type StoryScene =
   | "call"
@@ -105,17 +85,11 @@ export type StoryBeat = {
   label: string;
   scene: StoryScene;
   when?: string;
-  slides?: SlideCard[];
   artifact?: Artifact;
   visual?: StoryVisual;
 };
 
 export type Artifact =
-  | {
-      kind: "slides";
-      title: string;
-      cards: SlideCard[];
-    }
   | {
       kind: "one-pager";
       title: string;
@@ -227,14 +201,6 @@ export type DemoThread = {
   messages: DemoMessage[];
 };
 
-export type Clip = {
-  id: ClipId;
-  file: string;
-  poster: string;
-  title: string;
-  caption: string;
-};
-
 export type CroJob = {
   id: JobId;
   number: number;
@@ -244,17 +210,6 @@ export type CroJob = {
   problem: string;
   botJob: string;
   storyboard: StoryBeat[];
-  unlock: string;
   outcome: string;
-  clips: ClipId[];
   demo: DemoThread;
-};
-
-export type Quote = {
-  name: string;
-  handle: string;
-  date: string;
-  avatar: string;
-  quote: string;
-  source: string;
 };

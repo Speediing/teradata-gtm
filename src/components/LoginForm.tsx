@@ -45,7 +45,7 @@ export function LoginForm() {
       />
       {error ? <p className="login-error">Wrong password. Try again.</p> : null}
       <button type="submit" disabled={pending}>
-        {pending ? "Checking…" : "Open the site"}
+        {pending ? "Checking" : "Open the site"}
       </button>
     </form>
   );

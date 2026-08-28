@@ -1,5 +1,5 @@
 {
-  "name": "datadog-cro",
+  "name": "teradata-grokbot",
   "version": "0.1.0",
   "private": true,
   "scripts": {
@@ -25,5 +25,8 @@
     "eslint-config-next": "15.5.24",
     "tailwindcss": "^4",
     "typescript": "^5"
+  },
+  "overrides": {
+    "postcss": "8.5.26"
   }
 }

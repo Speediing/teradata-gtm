@@ -1,12 +1,7 @@
 import type { Artifact } from "@/data/types";
-import { HeardSlide } from "./HeardSlide";
 
 export function ArtifactCard({ artifact }: { artifact: Artifact }) {
   switch (artifact.kind) {
-      case "slides":
-      return (
-        <HeardSlide slides={artifact.cards} size="sm" />
-      );
     case "one-pager":
       return (
         <div className="art art-doc">

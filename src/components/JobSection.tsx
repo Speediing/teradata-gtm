@@ -1,18 +1,18 @@
+import Image from "next/image";
 import type { CroJob, JobId } from "@/data/types";
 import { Storyboard } from "./Storyboard";
 import { ChapterPayoff } from "./ChapterPayoff";
 import { JobMore } from "./JobMore";
 
 const JOB_ART: Record<JobId, string> = {
-  "standardize-room": "/brand/watercolor-room.png",
-  "legal-redlines": "/brand/watercolor-deal.png",
-  "attach-engine": "/brand/watercolor-attach.png",
+  "standardize-room": "/brand/teradata-watercolor-header.png",
+  "legal-redlines": "/brand/teradata-watercolor-header.png",
+  "attach-engine": "/brand/teradata-watercolor-header.png",
 };
 
 export function JobSection({ job }: { job: CroJob }) {
   const lastBeat = job.storyboard[job.storyboard.length - 1];
-  const payoff =
-    lastBeat?.artifact || lastBeat?.slides?.length ? lastBeat : undefined;
+  const payoff = lastBeat?.artifact ? lastBeat : undefined;
   const lead = payoff ? job.storyboard.slice(0, -1) : job.storyboard;
 
   return (
@@ -22,8 +22,13 @@ export function JobSection({ job }: { job: CroJob }) {
       </p>
       <div>
         <div className="job-art" aria-hidden>
-          {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img src={JOB_ART[job.id]} alt="" />
+          <Image
+            src={JOB_ART[job.id]}
+            alt=""
+            width={1536}
+            height={864}
+            sizes="28rem"
+          />
         </div>
         <div className="background-agent">
           <span className="background-agent-pulse" aria-hidden />
