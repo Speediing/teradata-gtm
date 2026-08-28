@@ -1,7 +1,7 @@
 export const AUTH_COOKIE = "teradata_gtm_session";
 
-export function sitePassword(): string {
-  return process.env.SITE_PASSWORD || "land2expand";
+export function sitePassword(): string | null {
+  return process.env.SITE_PASSWORD || null;
 }
 
 function toHex(buffer: ArrayBuffer): string {
@@ -11,8 +11,9 @@ function toHex(buffer: ArrayBuffer): string {
 }
 
 export async function sessionToken(
-  password: string = sitePassword(),
+  password: string | null = sitePassword(),
 ): Promise<string> {
+  if (!password) return "";
   const data = new TextEncoder().encode(`teradata-gtm:${password}`);
   const digest = await crypto.subtle.digest("SHA-256", data);
   return toHex(digest);
@@ -33,6 +34,7 @@ export async function isValidSession(
 
 export function passwordMatches(input: string): boolean {
   const expected = sitePassword();
+  if (!expected) return false;
   if (input.length !== expected.length) return false;
   let mismatch = 0;
   for (let i = 0; i < input.length; i += 1) {

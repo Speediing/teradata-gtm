@@ -2,7 +2,6 @@ import { cookies } from "next/headers";
 import { redirect } from "next/navigation";
 import { AUTH_COOKIE, isValidSession } from "@/lib/auth";
 
-/** Server-side password gate for every page under the root layout except /login. */
 export async function requireSiteAccess(pathname: string = "/") {
   const jar = await cookies();
   const token = jar.get(AUTH_COOKIE)?.value;

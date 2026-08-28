@@ -71,7 +71,7 @@ function MicIcon() {
 }
 
 export function HeroDemo() {
-  const [activeId, setActiveId] = useState(HERO_JOBS[0].id);
+  const [activeId, setActiveId] = useState<string>(HERO_JOBS[0].id);
   const active =
     HERO_JOBS.find((job) => job.id === activeId) ?? HERO_JOBS[0];
 

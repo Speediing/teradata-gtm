@@ -520,6 +520,10 @@ button:active:not(:focus-visible),
   line-height: 1.5;
 }
 
+.hero-copy {
+  min-width: 0;
+}
+
 .hero-phone-jobs {
   display: flex;
   flex-wrap: wrap;
